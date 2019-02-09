@@ -1,0 +1,26 @@
+---
+packages:
+  - { name: alfred, state: present }
+  - { name: amazon-music, state: present }
+  - { name: android-file-transfer, state: present }
+  - { name: android-platform-tools, state: present }
+  - { name: appcleaner, state: present }
+  - { name: atom, state: present }
+  - { name: box-sync, state: present }
+  - { name: dash, state: present }
+  - { name: dropbox, state: present }
+  - { name: emacs, state: present }
+  - { name: firefox, state: present }
+  - { name: font-ricty-diminished, state: present }
+  - { name: font-source-code-pro, state: present }
+  - { name: github, state: present }
+  - { name: google-backup-and-sync, state: present }
+  - { name: google-chrome, state: present }
+  - { name: google-japanese-ime, state: present }
+  - { name: horndis, state: present }
+  - { name: karabiner-elements, state: present }
+  - { name: kindle, state: present }
+  - { name: marp, state: present }
+  - { name: onyx, state: present }
+  - { name: vagrant, state: present }
+  - { name: virtualbox, state: present }
