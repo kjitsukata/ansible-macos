@@ -1,0 +1,72 @@
+---
+- name: rbenv install
+  git:
+    clone: yes
+    repo: https://github.com/rbenv/rbenv.git
+    dest: ~/.rbenv
+  changed_when: False
+  tags: ruby_build
+
+- name: ruby-build make directory
+  file:
+    path: ~/.rbenv/plugins
+    state: directory
+    mode: 0755
+  tags: ruby_build
+
+- name: ruby-build install
+  git:
+    clone: yes
+    repo: https://github.com/rbenv/ruby-build.git
+    dest: ~/.rbenv/plugins/ruby-build
+  changed_when: False
+  tags: ruby_build
+
+- name: rbenv default gems install
+  git:
+    clone: yes
+    repo: https://github.com/rbenv/rbenv-default-gems.git
+    dest: ~/.rbenv/plugins/rbenv-default-gems
+  changed_when: False
+  tags: ruby_build
+
+- name: rbenv default gems configuration
+  template:
+    src: templates/Users/.rbenv/default-gems.j2
+    dest: ~/.rbenv/default-gems
+  tags: ruby_build
+
+- name: ruby installed version check
+  shell: bash -lc "rbenv versions | grep {{ item }}"
+  register: rver
+  with_items: "{{ rversions }}"
+  failed_when: False
+  changed_when: False
+  tags: ruby_build
+
+- name: ruby install
+  shell: bash -lc "rbenv install {{ item.item }}"
+  when: item.rc != 0
+  with_items: "{{ rver.results }}"
+  tags: ruby_build
+
+- name: ruby global version check
+  shell: bash -lc "rbenv version | grep {{ rversion }}"
+  register: globalver
+  failed_when: False
+  changed_when: False
+  tags: ruby_build
+
+- name: ruby version configuration
+  shell: bash -lc "rbenv global {{ rversion }}"
+  when: globalver.rc != 0
+  tags: ruby_build
+
+- name: ruby gems install
+  gem:
+    name: "{{ item.name }}"
+    state: "{{ item.state | default('present') }}"
+    user_install: no
+    executable: ~/.rbenv/shims/gem
+  with_items: "{{ gems }}"
+  tags: ruby_build

@@ -1,0 +1,7 @@
+---
+rversion: 2.6.1
+rversions:
+  - 2.3.7
+  - 2.6.1
+gems:
+  - { name: serverspec, state: present}
