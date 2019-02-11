@@ -4,3 +4,4 @@
   roles:
     - homebrew
     - homebrew_cask
+    - ruby_build
