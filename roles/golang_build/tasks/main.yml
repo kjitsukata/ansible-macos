@@ -1,0 +1,34 @@
+---
+- name: goenv install
+  git:
+    clone: yes
+    repo: https://github.com/syndbg/goenv.git
+    dest: ~/.goenv
+  changed_when: False
+  tags: golang_build
+
+- name: golang installed version check
+  shell: bash -lc "goenv versions | grep {{ item }}"
+  register: gover
+  with_items: "{{ goversions }}"
+  failed_when: False
+  changed_when: False
+  tags: golang_build
+
+- name: golang install
+  shell: bash -lc "goenv install {{ item.item }}"
+  when: item.rc != 0
+  with_items: "{{ gover.results }}"
+  tags: golang_build
+
+- name: golang global version check
+  shell: bash -lc "goenv version | grep {{ goversion }}"
+  register: globalver
+  failed_when: False
+  changed_when: False
+  tags: golang_build
+
+- name: golang version configuration
+  shell: bash -lc "goenv global {{ goversion }}"
+  when: globalver.rc != 0
+  tags: golang_build
