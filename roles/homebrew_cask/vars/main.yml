@@ -18,7 +18,6 @@ packages:
   - { name: google-chrome, state: present }
   - { name: google-japanese-ime, state: present }
   - { name: horndis, state: present }
-  - { name: karabiner-elements, state: present }
   - { name: kindle, state: present }
   - { name: marp, state: present }
   - { name: onyx, state: present }
