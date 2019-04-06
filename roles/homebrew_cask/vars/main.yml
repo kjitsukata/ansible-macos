@@ -24,3 +24,5 @@ packages:
   - { name: onyx, state: present }
   - { name: vagrant, state: present }
   - { name: virtualbox, state: present }
+  - { name: visual-studio-code, state: present }
+  - { name: wireshark, state: present }
