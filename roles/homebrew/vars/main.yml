@@ -16,6 +16,7 @@ packages:
   - { name: packer, state: present }
   - { name: pwgen, state: present }
   - { name: sphinx-doc, state: present }
+  - { name: telnet, state: present }
   - { name: tmux, state: present }
   - { name: tree, state: present }
   - { name: xz, state: present }
