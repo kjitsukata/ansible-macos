@@ -9,6 +9,7 @@ packages:
   - { name: atom, state: present }
   - { name: box-sync, state: present }
   - { name: dash, state: present }
+  - { name: docker, state: present }
   - { name: emacs, state: present }
   - { name: firefox, state: present }
   - { name: font-ricty-diminished, state: present }
