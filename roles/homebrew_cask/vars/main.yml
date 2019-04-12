@@ -2,6 +2,7 @@
 packages:
   - { name: alfred, state: present }
   - { name: amazon-music, state: present }
+  - { name: amazon-photos, state: present }
   - { name: android-file-transfer, state: present }
   - { name: android-platform-tools, state: present }
   - { name: appcleaner, state: present }
