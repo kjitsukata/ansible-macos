@@ -1,4 +1,5 @@
 ---
-goversion: 1.11.5
+goversion: 1.12.4
 goversions:
   - 1.11.5
+  - 1.12.4
