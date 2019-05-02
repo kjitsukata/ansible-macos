@@ -6,18 +6,18 @@ taps:
   - homebrew/core
 
 packages:
-  - { name: coreutils, state: present }
-  - { name: docker, state: present }
-  - { name: git, state: present }
-  - { name: knock, state: present }
-  - { name: libressl, state: present }
-  - { name: nmap, state: present }
-  - { name: openssl, state: present }
-  - { name: openssl@1.1, state: present }
-  - { name: packer, state: present }
-  - { name: pwgen, state: present }
-  - { name: sphinx-doc, state: present }
-  - { name: telnet, state: present }
-  - { name: tmux, state: present }
-  - { name: tree, state: present }
-  - { name: xz, state: present }
+  - { name: coreutils, state: latest }
+  - { name: docker, state: latest }
+  - { name: git, state: latest }
+  - { name: knock, state: latest }
+  - { name: libressl, state: latest }
+  - { name: nmap, state: latest }
+  - { name: openssl, state: latest }
+  - { name: openssl@1.1, state: latest }
+  - { name: packer, state: latest }
+  - { name: pwgen, state: latest }
+  - { name: sphinx-doc, state: latest }
+  - { name: telnet, state: latest }
+  - { name: tmux, state: latest }
+  - { name: tree, state: latest }
+  - { name: xz, state: latest }
