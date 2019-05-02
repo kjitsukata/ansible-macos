@@ -4,4 +4,4 @@ rversions:
   - 2.3.7
   - 2.6.1
 gems:
-  - { name: serverspec, state: present}
+  - { name: serverspec, state: latest }
