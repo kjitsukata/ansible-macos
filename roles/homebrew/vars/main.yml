@@ -20,4 +20,5 @@ packages:
   - { name: telnet, state: latest }
   - { name: tmux, state: latest }
   - { name: tree, state: latest }
+  - { name: wget, state: latest }
   - { name: xz, state: latest }
