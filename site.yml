@@ -6,3 +6,4 @@
     - homebrew_cask
     - golang_build
     - ruby_build
+    - python_build
