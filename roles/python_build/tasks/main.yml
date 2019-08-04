@@ -1,0 +1,42 @@
+---
+- name: pyenv install
+  git:
+    clone: yes
+    repo: https://github.com/yyuu/pyenv.git
+    dest: ~/.pyenv
+  changed_when: False
+  tags: python_build
+
+- name: pyenv-virtualenv install
+  git:
+    clone: yes
+    repo: https://github.com/yyuu/pyenv-virtualenv.git
+    dest: ~/.pyenv/plugins/pyenv-virtualenv
+  changed_when: False
+  tags: python_build
+
+- name: python installed version check
+  shell: bash -lc "pyenv versions | grep {{ item }}"
+  register: pyver
+  with_items: "{{ pyversions }}"
+  failed_when: False
+  changed_when: False
+  tags: python_build
+
+- name: python install
+  shell: bash -lc "pyenv install {{ item.item }}"
+  when: item.rc != 0
+  with_items: "{{ pyver.results }}"
+  tags: python_build
+
+- name: python global version check
+  shell: bash -lc "pyenv version | grep {{ pyversion }}"
+  register: globalver
+  failed_when: False
+  changed_when: False
+  tags: python_build
+
+- name: python version configuration
+  shell: bash -lc "pyenv global {{ pyversion }}"
+  when: globalver.rc != 0
+  tags: python_build
